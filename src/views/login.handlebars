@@ -1,0 +1,18 @@
+<div class='login'>
+  <h1 class='text-center'>Login</h1>
+  <form class='form' action='/auth/login' method='POST'>
+    <div class='mb-3'>
+      <label for='inputEmail' class='form-label'>Email address</label>
+      <input name='email' type='email' class='form-control' id='inputEmail' aria-describedby='emailHelp' placeholder='example@example.com' />
+    </div>
+    <div class='mb-3'>
+      <label for='password' class='form-label'>Password</label>
+      <input name='password' type='password' class='form-control' id='password' placeholder='*******' />
+    </div>
+    <input type='submit' value='Login' class='btn btn-primary' />
+  </form>
+
+  <a href='/auth/register'>Aun no tengo cuenta... registrarse</a>
+  <br />
+  <a href='/api/sessions/github'><button>Entrar con Github</button></a>
+</div>
