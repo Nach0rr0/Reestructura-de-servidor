@@ -17,7 +17,14 @@ import { fileURLToPath } from 'url';
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 
+
+
 import { connect } from 'mongoose';
+import 'dotenv/config';
+
+const MONGO_USER = process.env.MONGO_USER;
+const MONGO_PASS = process.env.MONGO_PASS;
+
 export async function connectMongo() {
   try {
     await connect('mongodb+srv://nachuroman23:<password>@cluster0.awelxst.mongodb.net/');

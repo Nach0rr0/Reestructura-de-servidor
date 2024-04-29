@@ -5,6 +5,7 @@ import handlebars from 'express-handlebars';
 import session from 'express-session';
 import passport from 'passport';
 import path from 'path';
+import 'dotenv/config';
 import { iniPassport } from './config/passport.config.js';
 import { authRouter } from './routes/auth.router.js';
 import { cartsRouter } from './routes/carts.router.js';
@@ -23,6 +24,7 @@ const port = 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 const httpServer = app.listen(port, () => {
@@ -33,6 +35,8 @@ connectMongo();
 
 app.use(cookieParser());
 
+const MONGO_USER = process.env.MONGO_USER;
+const MONGO_PASS = process.env.MONGO_PASS;
 app.use(
   session({
     store: MongoStore.create({ mongoUrl: 'mongodb+srv://nachuroman23:<password>@cluster0.awelxst.mongodb.net/', ttl: 7200 }),
